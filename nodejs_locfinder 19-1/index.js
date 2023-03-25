@@ -1,4 +1,4 @@
-
+require('dotenv').config();
 var express = require('express');
 var router = express();
 var url = require('url');
@@ -6,10 +6,10 @@ var bodyparser = require('body-parser');
 var mysql = require('mysql');
 
 var admin = require('firebase-admin');
-var serviceAccount = require("./locationfinderapp-8c215-firebase-adminsdk-2j249-2aba762006");
+var serviceAccount = require("./locationfinderapp-firebase-adminsdk");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://locationfinderapp-8c215.firebaseio.com"
+  databaseURL: "databaseURL"
 });
 
 
@@ -17,7 +17,7 @@ var config =
 {
   host : '127.0.0.1',
   user : 'root',
-  password : 'u7FjW!xfDG@4qd',
+  password : '',
   database : 'locationfinderapp'
 }
 
@@ -1030,6 +1030,6 @@ router.post('/LocationFinderApp/GPS_Off_cantGetLocation' , function(req , res , 
 
 
 
-router.listen(3000, '23.239.203.134', function(){
-  console.log(`Server running at http://23.239.203.134:3000`);
+router.listen(3000, 'localhost', function(){
+  console.log(`Server running at http://localhost:3000`);
 });

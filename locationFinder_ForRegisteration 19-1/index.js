@@ -5,10 +5,10 @@ var bodyparser = require('body-parser');
 var mysql = require('mysql');
 var admin = require('firebase-admin');
 
-var serviceAccount = require("./registeruserslocationfin-19dbd-firebase-adminsdk-4b0jq-5732fc5389.json");
+var serviceAccount = require("./registeruserslocationfin-firebase-adminsdk.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://registeruserslocationfin-19dbd.firebaseio.com"
+  databaseURL: "databaseURL"
 });
 
 
@@ -16,7 +16,7 @@ var config =
 {
   host : '127.0.0.1',
   user : 'root',
-  password : 'u7FjW!xfDG@4qd',
+  password : '',
   database : 'locationfinderapp'
 }
 
@@ -220,6 +220,6 @@ function requestRegCodeFromModem(res , req){
 
 
 
-router.listen(3001, '23.239.203.134', function(){
-  console.log(`Server running at http://23.239.203.134:3001 `);
+router.listen(3001, 'localhost', function(){
+  console.log(`Server running at http://localhost:3001 `);
 });
